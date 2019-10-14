@@ -1,6 +1,6 @@
 # fonk-required-by-field-validator
 
-[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-required-by-field-validator/master/ci?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-required-by-field-validator/tree/master)
+[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-required-by-field-validator/master?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-required-by-field-validator/tree/master)
 [![NPM Version](https://badgen.net/npm/v/@lemoncode/fonk-required-by-field-validator?icon=npm&label=npm)](https://www.npmjs.com/package/@lemoncode/fonk-required-by-field-validator)
 [![bundle-size](https://badgen.net/bundlephobia/min/@lemoncode/fonk-required-by-field-validator)](https://bundlephobia.com/result?p=@lemoncode/fonk-required-by-field-validator)
 
