@@ -52,7 +52,8 @@ const validationSchema = {
         validator: requiredByField.validator,
         customArgs: {
           field: 'country',
-          condition: fieldValue => fieldValue === 'U.S.A' || fieldValue === 'Australia',
+          condition: fieldValue =>
+            fieldValue === 'U.S.A' || fieldValue === 'Australia',
         },
       },
     ],
@@ -72,7 +73,8 @@ const validationSchema = {
         validator: requiredByField.validator,
         customArgs: {
           field: 'country',
-          condition: (fieldValue, values) => fieldValue === 'U.S.A' && values.person === 'John',
+          condition: (fieldValue, values) =>
+            fieldValue === 'U.S.A' && values.person === 'John',
         },
       },
     ],
