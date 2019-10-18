@@ -1,7 +1,7 @@
 {
   "name": "@lemoncode/fonk-required-by-field-validator",
   "version": "0.1.0",
-  "description": "// TODO: Update description: This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to validate if a field of a form ...",
+  "description": "Update description: This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to validate if a field of a form is required by another field",
   "main": "dist/@lemoncode/fonk-required-by-field-validator.cjs.js",
   "module": "dist/@lemoncode/fonk-required-by-field-validator.esm.js",
   "typings": "typings/index.d.ts",
