@@ -6,9 +6,13 @@
 
 This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to:
 
-// TODO: Update description and example.
+- Validate if a field of a form is required by another field.
 
-- Validate if a field of a form ....
+How to install it:
+
+```bash
+npm install @lemoncode/fonk-required-by-field-validator --save
+```
 
 How to add it to an existing form validation schema:
 
@@ -16,8 +20,9 @@ We have the following form model:
 
 ```
 const myFormValues = {
-  product : 'shoes',
-  price: 20,
+  person : 'John',
+  country: 'U.S.A',
+  state: 'California',
 }
 ```
 
@@ -27,7 +32,59 @@ We can add a requiredByField validation to the myFormValues
 import { requiredByField } from '@lemoncode/fonk-required-by-field-validator';
 
 const validationSchema = {
-  price: [requiredByField.validator],
+  field: {
+    state: [
+      {
+        validator: requiredByField.validator,
+        customArgs: {
+          field: 'country',
+          value: 'U.S.A',
+        },
+      },
+    ],
+  },
+};
+```
+
+- Or with a `condition`:
+
+```javascript
+import { requiredByField } from '@lemoncode/fonk-required-by-field-validator';
+
+const validationSchema = {
+  field: {
+    state: [
+      {
+        validator: requiredByField.validator,
+        customArgs: {
+          field: 'country',
+          condition: fieldValue =>
+            fieldValue === 'U.S.A' || fieldValue === 'Australia',
+        },
+      },
+    ],
+  },
+};
+```
+
+- Another `condition`:
+
+```javascript
+import { requiredByField } from '@lemoncode/fonk-required-by-field-validator';
+
+const validationSchema = {
+  field: {
+    state: [
+      {
+        validator: requiredByField.validator,
+        customArgs: {
+          field: 'country',
+          condition: (fieldValue, values) =>
+            fieldValue === 'U.S.A' && values.person === 'John',
+        },
+      },
+    ],
+  },
 };
 ```
 
@@ -38,7 +95,7 @@ You can customize the error message displayed in two ways:
 ```javascript
 import { requiredByField } from '@lemoncode/fonk-required-by-field-validator';
 
-requiredByField.setErrorMessage('El campo debe de ser numérico');
+requiredByField.setErrorMessage('El campo es requerido');
 ```
 
 - Locally just override the error message for this validationSchema:
@@ -47,12 +104,18 @@ requiredByField.setErrorMessage('El campo debe de ser numérico');
 import { requiredByField } from '@lemoncode/fonk-required-by-field-validator';
 
 const validationSchema = {
-  price: [
-    {
-      validator: requiredByField.validator,
-      message: 'Error message only updated for the validation schema',
-    },
-  ],
+  field: {
+    state: [
+      {
+        validator: requiredByField.validator,
+        customArgs: {
+          field: 'country',
+          value: 'U.S.A',
+        },
+        message: 'Required field',
+      },
+    ],
+  },
 };
 ```
 
