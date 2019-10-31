@@ -8,6 +8,12 @@ This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings val
 
 - Validate if a field of a form is required by another field.
 
+How to install it:
+
+```bash
+npm install @lemoncode/fonk-required-by-field-validator --save
+```
+
 How to add it to an existing form validation schema:
 
 We have the following form model:
