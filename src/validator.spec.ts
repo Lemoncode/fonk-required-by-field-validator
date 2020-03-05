@@ -521,6 +521,46 @@ describe('fonk-required-by-field-validator specs', () => {
     });
   });
 
+  it('should return succeeded validation when it feeds value equals empty string, nested field is undefined', () => {
+    // Arrange
+    const value = '';
+    const values = { nested: undefined };
+    const customArgs = {
+      field: 'nested.field',
+      value: 'test1',
+    };
+
+    // Act
+    const result = validator({ value, values, customArgs });
+
+    // Assert
+    expect(result).toEqual({
+      succeeded: true,
+      message: '',
+      type: VALIDATOR_TYPE,
+    });
+  });
+
+  it('should return failed validation when it feeds value equals empty string, nested is undefined and condition is fieldValue exists', () => {
+    // Arrange
+    const value = '';
+    const values = { nested: undefined };
+    const customArgs = {
+      field: 'nested.field',
+      condition: fieldValue => !Boolean(fieldValue),
+    };
+
+    // Act
+    const result = validator({ value, values, customArgs });
+
+    // Assert
+    expect(result).toEqual({
+      succeeded: false,
+      message: 'Please fill in this mandatory field.',
+      type: VALIDATOR_TYPE,
+    });
+  });
+
   it('should return failed validation when it feeds value equals empty string, nested field and it matchs with value', () => {
     // Arrange
     const value = '';
