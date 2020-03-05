@@ -35,7 +35,7 @@ const checkRequiredParameters = (customArgs: CustomValidatorArgs, values) => {
 };
 
 const getValueByCustomArgs = (values, { field }: CustomValidatorArgs) =>
-  field.split('.').reduce((value, key) => value[key], values);
+  field.split('.').reduce((value, key) => value ? value[key] : null, values);
 
 const hasToBeRequired = (values, customArgs: CustomValidatorArgs): boolean => {
   const customArgFieldValue = getValueByCustomArgs(values, customArgs);
