@@ -45,9 +45,7 @@ const hasToBeRequired = (values, customArgs: CustomValidatorArgs): boolean => {
     : customArgs.condition(customArgFieldValue, values);
 };
 
-export const validator: FieldValidationFunctionSync<
-  CustomValidatorArgs
-> = fieldValidatorArgs => {
+export const validator: FieldValidationFunctionSync<CustomValidatorArgs> = fieldValidatorArgs => {
   const {
     value,
     values,
